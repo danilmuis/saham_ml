@@ -8,7 +8,7 @@
             href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
             rel="stylesheet"
         />
-        <title>Aplikasi Prediksi Biaya Asuransi</title>
+        <title>Aplikasi Prediksi Harga Saham</title>
     </head>
     <body
         class="
@@ -19,14 +19,14 @@
             min-h-screen
             bg-gradient-to-r
             from-green-400
-            to-blue-500
+            to-blue-900
             text-gray-800
             md:flex-row
         "
     >
         <main class="bg-white p-16 rounded-lg">
             <h1 class="text-3xl font-bold mb-8">
-                Prediksi Biaya Asuransi Anda:
+                Prediksi Biaya Saham Anda:
             </h1>
 
             <form
@@ -34,16 +34,48 @@
                 method="post"
                 class="flex flex-col"
             >
-                <label for="Usia" class="mb-2">Usia</label>
+                <label for="harga1" class="mb-2">Harga Saham H-1</label>
                 <input
                     type="text"
-                    name="Usia"
-                    placeholder="Usia"
+                    name="harga1"
+                    placeholder="Harga H-1"
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+                <label for="harga1" class="mb-2">Harga Saham H-2</label>
+                <input
+                    type="text"
+                    name="harga2"
+                    placeholder="Harga H-2"
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+                <label for="harga1" class="mb-2">Harga Saham H-3</label>
+                <input
+                    type="text"
+                    name="harga3"
+                    placeholder="Harga H-3"
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+                <label for="harga1" class="mb-2">Harga Saham H-4</label>
+                <input
+                    type="text"
+                    name="harga4"
+                    placeholder="Harga H-4"
+                    required="required"
+                    class="p-4 bg-gray-100 rounded-md"
+                />
+                <label for="harga1" class="mb-2">Harga Saham H-5</label>
+                <input
+                    type="text"
+                    name="harga5"
+                    placeholder="Harga H-5"
                     required="required"
                     class="p-4 bg-gray-100 rounded-md"
                 />
 
-                <label for="Jenis Kelamin" class="mt-4 mb-2"
+                <!-- <label for="Jenis Kelamin" class="mt-4 mb-2"
                     >Jenis Kelamin:</label
                 >
                 <select
@@ -63,7 +95,7 @@
                 >
                     <option value="Ya">Ya</option>
                     <option value="Tidak">Tidak</option>
-                </select>
+                </select> -->
 
                 <button
                     type="submit"
@@ -102,16 +134,11 @@
         <section class="mt-8 h-full flex-auto rounded-lg md:mt-0 md:ml-8">
             <div class="bg-white p-16 rounded-lg">
                 <h1 class="text-2xl mb-8">
-                    Estimasi biaya asuransi Anda adalah
+                    Prediksi harga saham Anda adalah
                 </h1>
-                <h2 class="text-5xl font-bold">USD {{ insurance_cost }}</h2>
-                {% if (insurance_cost) != 0 %}
-                <div class="mt-8">
-                    <p>Usia: {{ age }} tahun</p>
-                    <p>Jenis kelamin: {{ sex }}</p>
-                    <p>Status perokok: {{ smoker }}</p>
-                </div>
-                {% endif %}
+                <h2 class="text-5xl font-bold">Harga Sekarang {{ output1 }}</h2>
+                <h2 class="text-5xl font-bold">Harga Besok {{ output2 }}</h2>
+                <h2 class="text-5xl font-bold">Harga Lusa {{ output3 }}</h2>
             </div>
             <div class="flex justify-around bg-white p-16 rounded-lg mt-8">
                 <img
