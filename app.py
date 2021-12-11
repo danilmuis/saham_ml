@@ -8,9 +8,9 @@ model = pickle.load(model_file, encoding='bytes')
 
 @app.route('/')
 def index():
-    return render_template('index.html', insurance_cost=0)
+    return render_template('index.html', output1='')
 
-@app.route('/predict', methods=['POST'])
+@app.route('/', methods=['POST'])
 def predict():
     '''
     Predict the insurance cost based on user inputs
@@ -18,18 +18,6 @@ def predict():
     '''
     a,b,c,d,e = [x for x in request.form.values()]
 
-    # data = []
-
-    # data.append(int(age))
-    # if sex == 'Laki-laki':
-    #     data.extend([0, 1])
-    # else:
-    #     data.extend([1, 0])
-
-    # if smoker == 'Ya':
-    #     data.extend([0, 1])
-    # else:
-    #     data.extend([1, 0])
     data = [e,d,c,b,a]
     prediction = model.predict([data])
     output1 = round(prediction[0])
@@ -43,7 +31,7 @@ def predict():
     prediction = model.predict([data3])
     output3 = round(prediction[0])
     
-    return render_template('index.html', output1=output1, output2=output2, output3=output3)
+    return render_template('index.html', output1=output1, output2=output2, output3=output3, e=e, d=d, c=c, b=b, a=a)
 
 
 if __name__ == '__main__':
