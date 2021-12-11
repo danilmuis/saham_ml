@@ -3,7 +3,8 @@ import pickle
 
 app = Flask(__name__)
 
-model_file = open('model.pkl', 'rb')
+# model_file = open('model.pkl', 'rb')
+model_file = open('model_real.pkl', 'rb')
 model = pickle.load(model_file, encoding='bytes')
 
 @app.route('/')
@@ -30,7 +31,7 @@ def predict():
         data.extend([0, 1])
     else:
         data.extend([1, 0])
-    
+    print(data)
     prediction = model.predict([data])
     output = round(prediction[0], 2)
 
